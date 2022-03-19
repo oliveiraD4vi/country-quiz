@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-image: url('../assets/background.png');
+}
+
+.app .app-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.app .app-main p {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.app .app-footer {
+  display: flex;
+  color: #fff;
+}
+
+.app .app-footer p {
+  font-weight: bold;
+}
+
+.app .card-with-padding {
+  margin: 10px 0;
+  min-width: 400px;
+  padding: 20px 25px;
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 2px 2px 15px rgba(2, 2, 2, 0.2);
+}
+
+.app .card-with-padding img {
+  position: relative;
+  bottom: 90%;
+  left: 60%;
+}
