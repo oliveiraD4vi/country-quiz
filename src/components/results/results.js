@@ -2,9 +2,10 @@ import WinnerIcon from '../../assets/undraw_winners.svg';
 
 import './results.css';
 
-const Results = ({ scores }) => {
+const Results = ({ scores, setScores, setFinalized }) => {
   const handleClick = () => {
-    console.log('clicked');
+    setScores(0);
+    setFinalized(false);
   };
 
   return (

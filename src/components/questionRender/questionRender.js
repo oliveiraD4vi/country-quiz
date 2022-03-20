@@ -4,7 +4,7 @@ import { SelectedOptionContext } from '../../contexts/SelectedOptionContext';
 import Question from "./question/question";
 
 const QuestionRender = ({ setFinalized, setScores }) => {
-  const { selectedOption } = useContext(SelectedOptionContext);
+  const { selectedOption, setSelectedOption } = useContext(SelectedOptionContext);
 
   const optionsList = [
     {
@@ -30,10 +30,13 @@ const QuestionRender = ({ setFinalized, setScores }) => {
   ];
 
   const nextQuestion = () => {
-    if (selectedOption.correct)
+    if (selectedOption.correct) {
       setScores((state) => (state+1));
-    else
+    } else {
       setFinalized(true);
+    }
+
+    setSelectedOption(null);
   }
 
   return (

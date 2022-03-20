@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5em 0;
+  margin: 3em 0;
 }
 
 .results-container .results-txt h1 {
@@ -41,6 +41,7 @@
 }
 
 .results-container button:hover {
+  color: #fff;
   cursor: pointer;
-  background-color: #eee;
+  background-color: #1D355D;
 }

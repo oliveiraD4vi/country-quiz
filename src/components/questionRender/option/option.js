@@ -4,20 +4,28 @@ import { SelectedOptionContext } from '../../../contexts/SelectedOptionContext';
 import './option.css';
 
 const Option = ({ id, text, correct }) => {
-  const { setSelectedOption } = useContext(SelectedOptionContext);
+  const { selectedOption, setSelectedOption } = useContext(SelectedOptionContext);
 
   const handleClick = () => {
     setSelectedOption({
       text: text,
       correct: correct,
     });
-    if (correct) console.log(text, 'correct');
-    else console.log(text, 'incorrect');
   }
 
   return (
     <button
-      className="option-container"
+      disabled={selectedOption ? true : false}
+      className={
+        `option-container ${selectedOption
+          ? selectedOption.text === text && !correct
+          ? 'selected-red'
+          : correct
+          ? 'selected-green'
+          : 'non-selected'
+          : null
+        }`
+      }
       onClick={() => handleClick()}
     >
       <span>{id}</span>

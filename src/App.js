@@ -24,7 +24,11 @@ export default function App() {
           <div className="card-with-padding">
             <div className="content">
               {finalized
-                ? <Results scores={scores} />
+                ? <Results
+                    scores={scores}
+                    setScores={setScores}
+                    setFinalized={setFinalized}
+                  />
                 : <QuestionRender 
                     setScores={setScores}
                     setFinalized={setFinalized}
