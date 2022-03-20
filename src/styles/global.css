@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
+/*general*/
+
 * {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -16,38 +18,58 @@
   background-image: url('../assets/background.png');
 }
 
+/*main*/
+
 .app .app-main {
   display: flex;
   flex-direction: column;
 }
 
-.app .app-main p {
+.app .app-main .app-top p {
   color: #fff;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
   text-transform: uppercase;
 }
+
+.app .app-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app .app-top .top-icon {
+  z-index: 2;
+  margin-bottom: -40px;
+  display: none; /*retirar*/
+}
+
+.app .app-top p {
+  align-self: flex-end;
+}
+
+.app .card-with-padding {
+  margin: 10px 0;
+  min-width: 400px;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 2px 2px 15px rgba(2, 2, 2, 0.2);
+}
+
+/*footer*/
 
 .app .app-footer {
   display: flex;
   color: #fff;
 }
 
-.app .app-footer p {
+.app .app-footer a {
+  color: #fff;
   font-weight: bold;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
 }
 
-.app .card-with-padding {
-  margin: 10px 0;
-  min-width: 400px;
-  padding: 20px 25px;
-  border-radius: 25px;
-  background-color: #fff;
-  box-shadow: 2px 2px 15px rgba(2, 2, 2, 0.2);
-}
-
-.app .card-with-padding img {
-  position: relative;
-  bottom: 90%;
-  left: 60%;
+.app .app-footer a:hover {
+  color: #f2a728;
 }
