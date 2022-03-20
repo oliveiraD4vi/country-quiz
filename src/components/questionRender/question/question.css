@@ -1,0 +1,14 @@
+.question-container {
+  margin-top: 2.5em;
+}
+
+.question-container h2 {
+  font-size: 24px;
+  color: #2F527B;
+}
+
+.question-container .options {
+  display: grid;
+  grid-gap: 1em;
+  padding-top: 30px;
+}

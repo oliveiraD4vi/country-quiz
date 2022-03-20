@@ -1,10 +1,15 @@
+import { useState } from 'react';
+
 import Results from './components/results/results';
+import QuestionRender from './components/questionRender/questionRender';
 
 import TopIcon from './assets/undraw_adventure.svg';
 
 import './styles/global.css';
 
 export default function App() {
+  const [finalized, setFinalized] = useState(null);
+
   return (
     <div className="app">
       <main className="app-main">
@@ -15,7 +20,7 @@ export default function App() {
 
         <div className="card-with-padding">
           <div className="content">
-            <Results scores={4} />
+            {finalized ? <Results scores={4} /> : <QuestionRender />}
           </div>
         </div>
       </main>

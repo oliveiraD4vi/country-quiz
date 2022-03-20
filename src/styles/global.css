@@ -40,7 +40,6 @@
 .app .app-top .top-icon {
   z-index: 2;
   margin-bottom: -40px;
-  display: none; /*retirar*/
 }
 
 .app .app-top p {
