@@ -2,7 +2,7 @@ import Option from '../option/option';
 
 import './question.css';
 
-const Question = ({ title, options, next }) => {
+const Question = ({ title, options, next, selectedOption }) => {
   return (
     <div className="question-container">
       <h2>{title}</h2>
@@ -18,9 +18,11 @@ const Question = ({ title, options, next }) => {
       </div>
 
       <div className="next-btn">
-        <button onClick={next}>
-          Next
-        </button>
+        {selectedOption && (
+          <button onClick={next}>
+            Next
+          </button>
+        )}
       </div>
     </div>
   );

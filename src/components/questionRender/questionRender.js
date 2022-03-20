@@ -1,6 +1,11 @@
+import { useContext } from 'react';
+import { SelectedOptionContext } from '../../contexts/SelectedOptionContext';
+
 import Question from "./question/question";
 
-const QuestionRender = ({ setFinalized }) => {
+const QuestionRender = ({ setFinalized, setScores }) => {
+  const { selectedOption } = useContext(SelectedOptionContext);
+
   const optionsList = [
     {
       id: 'A',
@@ -25,8 +30,10 @@ const QuestionRender = ({ setFinalized }) => {
   ];
 
   const nextQuestion = () => {
-    console.log('next question');
-    setFinalized(true);
+    if (selectedOption.correct)
+      setScores((state) => (state+1));
+    else
+      setFinalized(true);
   }
 
   return (
@@ -36,6 +43,7 @@ const QuestionRender = ({ setFinalized }) => {
         options={optionsList}
         title={'Kuala Lumpur is the capital of'}
         setFinalized={setFinalized}
+        selectedOption={selectedOption}
       />
     </div>
   );
