@@ -20,7 +20,7 @@ export default function App() {
 
         <div className="card-with-padding">
           <div className="content">
-            {finalized ? <Results scores={4} /> : <QuestionRender />}
+            {finalized ? <Results scores={4} /> : <QuestionRender setFinalized={setFinalized} />}
           </div>
         </div>
       </main>

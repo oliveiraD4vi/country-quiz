@@ -1,6 +1,6 @@
 import Question from "./question/question";
 
-const QuestionRender = () => {
+const QuestionRender = ({ setFinalized }) => {
   const optionsList = [
     {
       id: 'A',
@@ -26,11 +26,17 @@ const QuestionRender = () => {
 
   const nextQuestion = () => {
     console.log('next question');
+    setFinalized(true);
   }
 
   return (
     <div className="render-container">
-      <Question title={'Kuala Lumpur is the capital of'} options={optionsList} next={nextQuestion} />
+      <Question
+        next={nextQuestion}
+        options={optionsList}
+        title={'Kuala Lumpur is the capital of'}
+        setFinalized={setFinalized}
+      />
     </div>
   );
 }
