@@ -22,11 +22,15 @@ const QuestionRender = () => {
       text: 'Austria',
       correct: false,
     }
-  ]
+  ];
+
+  const nextQuestion = () => {
+    console.log('next question');
+  }
 
   return (
     <div className="render-container">
-      <Question title={'Kuala Lumpur is the capital of'} options={optionsList} />
+      <Question title={'Kuala Lumpur is the capital of'} options={optionsList} next={nextQuestion} />
     </div>
   );
 }

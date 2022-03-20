@@ -12,3 +12,23 @@
   grid-gap: 1em;
   padding-top: 30px;
 }
+
+.question-container .next-btn {
+  display: flex;
+  padding-top: 2em;
+  justify-content: flex-end;
+}
+
+.question-container .next-btn button {
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #F9A826;
+  padding: 1em 2em;
+  border-radius: 12px;
+}
+
+.question-container .next-btn button:hover {
+  cursor: pointer;
+}

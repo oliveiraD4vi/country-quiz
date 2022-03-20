@@ -8,7 +8,7 @@ import TopIcon from './assets/undraw_adventure.svg';
 import './styles/global.css';
 
 export default function App() {
-  const [finalized, setFinalized] = useState(null);
+  const [finalized, setFinalized] = useState(false);
 
   return (
     <div className="app">

@@ -2,7 +2,7 @@ import Option from '../option/option';
 
 import './question.css';
 
-const Question = ({ title, options }) => {
+const Question = ({ title, options, next }) => {
   return (
     <div className="question-container">
       <h2>{title}</h2>
@@ -12,8 +12,15 @@ const Question = ({ title, options }) => {
             id={option.id}
             key={option.id}
             text={option.text}
+            correct={option.correct}
           />
         ))}
+      </div>
+
+      <div className="next-btn">
+        <button onClick={next}>
+          Next
+        </button>
       </div>
     </div>
   );
