@@ -1,7 +1,8 @@
-import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { SelectedOptionContext } from '../../contexts/SelectedOptionContext';
 
+import axios from 'axios';
+import Spin from '../spin/spin';
 import Question from "./question/question";
 
 const QuestionRender = ({ setFinalized, setScores }) => {
@@ -31,7 +32,7 @@ const QuestionRender = ({ setFinalized, setScores }) => {
       if (i === n) {
         list.push({
           id: item,
-          text: data[numbers[i]].name,
+          text: data[numbers[i]].name.common,
           correct: true,
         });
         setTitle(
@@ -40,7 +41,7 @@ const QuestionRender = ({ setFinalized, setScores }) => {
       } else {
         list.push({
           id: item,
-          text: data[numbers[i]].name,
+          text: data[numbers[i]].name.common,
           correct: false,
         });
       }
@@ -64,7 +65,7 @@ const QuestionRender = ({ setFinalized, setScores }) => {
   const render = async () => {
     try {
       const response = await axios.get(
-        'https://restcountries.com/v2/all?fields=name,capital'
+        'https://restcountries.com/v3/all?fields=name,capital'
       );
       const data = response.data;
       setOptionsList(getList(data));
@@ -87,7 +88,7 @@ const QuestionRender = ({ setFinalized, setScores }) => {
 
   return loading ? (
     <div className="loading-container">
-      <span>loading...</span>
+      <Spin />
     </div>
   ) : (
     <div className="render-container">
