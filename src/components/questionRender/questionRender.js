@@ -8,6 +8,7 @@ import Question from "./question/question";
 const QuestionRender = ({ setFinalized, setScores }) => {
   const { selectedOption, setSelectedOption } = useContext(SelectedOptionContext);
 
+  const [flag, setFlag] = useState(null);
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(true);
   const [optionsList, setOptionsList] = useState(null);
@@ -16,7 +17,7 @@ const QuestionRender = ({ setFinalized, setScores }) => {
     render();
   }, [setFinalized]);
 
-  const getList = (data) => {
+  const getList = (data, type) => {
     const numbers = getNumbers(data.length);
     const n = Math.floor(Math.random() * 4);
     let list = [];
@@ -29,21 +30,45 @@ const QuestionRender = ({ setFinalized, setScores }) => {
         case 3: item = 'D'; break;
         default: break;
       }
-      if (i === n) {
-        list.push({
-          id: item,
-          text: data[numbers[i]].name.common,
-          correct: true,
-        });
-        setTitle(
-          `${data[numbers[i]].capital} is the capital of`
-        );
-      } else {
-        list.push({
-          id: item,
-          text: data[numbers[i]].name.common,
-          correct: false,
-        });
+      switch (type) {
+        case 0:
+        setFlag(null);
+        if (i === n) {
+          list.push({
+            id: item,
+            text: data[numbers[i]].name.common,
+            correct: true,
+          });
+          setTitle(
+            `${data[numbers[i]].capital} is the capital of`
+          );
+        } else {
+          list.push({
+            id: item,
+            text: data[numbers[i]].name.common,
+            correct: false,
+          });
+        }
+        break;
+
+        case 1:
+        setTitle('Which country does this flag belong to?');
+        if (i === n) {
+          list.push({
+            id: item,
+            text: data[numbers[i]].name.common,
+            correct: true,
+          });
+          setFlag(data[numbers[i]].flags.svg);
+        } else {
+          list.push({
+            id: item,
+            text: data[numbers[i]].name.common,
+            correct: false,
+          });
+        }
+        break;
+        default: break;
       }
     }
     return list;
@@ -65,13 +90,16 @@ const QuestionRender = ({ setFinalized, setScores }) => {
   const render = async () => {
     try {
       const response = await axios.get(
-        'https://restcountries.com/v3/all?fields=name,capital'
+        'https://restcountries.com/v3.1/all?fields=name,capital,flags'
       );
       const data = response.data;
-      setOptionsList(getList(data));
+      setOptionsList(
+        getList(data, Math.floor(Math.random() * 2))
+      );
       setLoading(false);
     } catch (responseError) {
       console.log(responseError);
+      render();
     }
   }
 
@@ -93,6 +121,7 @@ const QuestionRender = ({ setFinalized, setScores }) => {
   ) : (
     <div className="render-container">
       <Question
+        img={flag}
         title={title}
         next={nextQuestion}
         options={optionsList}

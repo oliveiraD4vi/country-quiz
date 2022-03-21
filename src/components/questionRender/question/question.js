@@ -2,9 +2,10 @@ import Option from '../option/option';
 
 import './question.css';
 
-const Question = ({ title, options, next, selectedOption }) => {
+const Question = ({ img, title, options, next, selectedOption }) => {
   return (
     <div className="question-container">
+      {img ? <img className="flag" src={img} alt="flag" /> : null}
       <h2>{title}</h2>
       <div className="options">
         {options.map((option) => (
