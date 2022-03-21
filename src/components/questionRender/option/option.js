@@ -1,6 +1,9 @@
 import { useContext } from 'react';
 import { SelectedOptionContext } from '../../../contexts/SelectedOptionContext';
 
+import DoneIcon from '../../../assets/icons/check-icon.svg';
+import CloseIcon from '../../../assets/icons/close-icon.svg';
+
 import './option.css';
 
 const Option = ({ id, text, correct }) => {
@@ -28,8 +31,17 @@ const Option = ({ id, text, correct }) => {
       }
       onClick={() => handleClick()}
     >
-      <span>{id}</span>
-      <p>{text}</p>
+      <div>
+        <span>{id}</span>
+        <p>{text}</p>
+      </div>
+
+      {selectedOption && selectedOption.text === text && !correct
+        ? <img src={CloseIcon} alt="icon" />
+        : correct
+        ? <img src={DoneIcon} alt="icon" />
+        : null
+      }
     </button>
   );
 }

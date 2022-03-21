@@ -5,6 +5,7 @@
   color: #2F527B;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: #fff;
   transition: all 0.2s ease-in-out;
 }
@@ -16,6 +17,15 @@
   background-color: #f2a728;
 }
 
+.option-container div {
+  display: flex;
+  align-items: center;
+}
+
+.option-container img {
+  display: none;
+}
+
 .selected-red {
   color: #fff !important;
   cursor: pointer;
@@ -23,11 +33,19 @@
   background-color: #EA8282 !important;
 }
 
+.selected-red img {
+  display: block !important;
+}
+
 .selected-green {
   color: #fff !important;
   cursor: pointer;
   border: 2px solid #60BF88 !important;
   background-color: #60BF88 !important;
+}
+
+.selected-green img {
+  display: block !important;
 }
 
 .non-selected:hover {
