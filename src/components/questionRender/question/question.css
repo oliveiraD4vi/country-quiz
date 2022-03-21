@@ -20,15 +20,18 @@
 }
 
 .question-container .next-btn button {
-  color: #fff;
-  border: none;
   font-size: 18px;
   font-weight: bold;
-  background-color: #F9A826;
+  color: #F9A826;
+  border: 2px solid #F9A826;
+  background-color: #fff;
   padding: 1em 2em;
   border-radius: 12px;
+  transition: all 0.2s ease-in-out;
 }
 
 .question-container .next-btn button:hover {
   cursor: pointer;
+  color: #fff;
+  background-color: #F9A826;
 }
