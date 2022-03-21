@@ -18,7 +18,10 @@ export default function App() {
         <main className="app-main">
           <div className="app-top">
             <p>country quiz</p>
-            <img className="top-icon" src={TopIcon} alt="top-icon" />
+            {!finalized 
+              ? <img className="top-icon" src={TopIcon} alt="top-icon" />
+              : null
+            }
           </div>
 
           <div className="card-with-padding">
