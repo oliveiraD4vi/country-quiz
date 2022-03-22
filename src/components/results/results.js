@@ -2,7 +2,7 @@ import WinnerIcon from '../../assets/undraw_winners.svg';
 
 import './results.css';
 
-const Results = ({ scores, setScores, setFinalized, setInitialized }) => {
+const Results = ({ name, setName, scores, setScores, setFinalized, setInitialized }) => {
   const handleTryAgain = () => {
     setScores(0);
     setFinalized(false);
@@ -12,10 +12,19 @@ const Results = ({ scores, setScores, setFinalized, setInitialized }) => {
     setScores(0);
     setFinalized(false);
     setInitialized(false);
+    setName('');
   };
 
   return (
     <div className="results-container">
+      <div className="results-txt name">
+        <p>
+          Hey, <span>{name}</span>! It was fun?
+          <br />
+          We hope so!
+        </p>
+      </div>
+
       <img src={WinnerIcon} alt="top-icon" />
 
       <div className="results-txt">

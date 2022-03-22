@@ -10,6 +10,7 @@ import TopIcon from './assets/undraw_adventure.svg';
 import './styles/global.css';
 
 export default function App() {
+  const [name, setName] = useState('');
   const [scores, setScores] = useState(0);
   const [finalized, setFinalized] = useState(false);
   const [initialized, setInitialized] = useState(false);
@@ -30,7 +31,9 @@ export default function App() {
             <div className="content">
               {finalized
                 ? <Results
+                    name={name}
                     scores={scores}
+                    setName={setName}
                     setScores={setScores}
                     setFinalized={setFinalized}
                     setInitialized={setInitialized}
@@ -40,8 +43,12 @@ export default function App() {
                     setScores={setScores}
                     setFinalized={setFinalized}
                   />
-                : <Init setInitialized={setInitialized} />
-              }
+                : <Init
+                    name={name}
+                    setName={setName}
+                    setInitialized={setInitialized}
+                  />
+                }
             </div>
           </div>
         </main>

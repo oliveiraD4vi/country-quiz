@@ -3,6 +3,16 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+}
+
+.results-container .name {
+  margin: 1em 0 !important;
+}
+
+.results-container .name p span {
+  font-size: 18px !important;
+  color: #f2a728 !important;
 }
 
 .results-container .results-txt {
@@ -25,7 +35,7 @@
 .results-container .results-txt p span {
   font-size: 36px;
   font-weight: bold;
-  color: #07e49c;
+  color: #f2a728;
 }
 
 .results-container .btn-container {
