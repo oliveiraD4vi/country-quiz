@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SelectedOptionProvider } from './contexts/SelectedOptionContext';
 
+import Init from './components/init/init';
 import Results from './components/results/results';
 import QuestionRender from './components/questionRender/questionRender';
 
@@ -11,6 +12,7 @@ import './styles/global.css';
 export default function App() {
   const [scores, setScores] = useState(0);
   const [finalized, setFinalized] = useState(false);
+  const [initialized, setInitialized] = useState(false);
 
   return (
     <SelectedOptionProvider>
@@ -31,12 +33,15 @@ export default function App() {
                     scores={scores}
                     setScores={setScores}
                     setFinalized={setFinalized}
+                    setInitialized={setInitialized}
                   />
-                : <QuestionRender 
+                : initialized
+                ? <QuestionRender 
                     setScores={setScores}
                     setFinalized={setFinalized}
                   />
-                }
+                : <Init setInitialized={setInitialized} />
+              }
             </div>
           </div>
         </main>

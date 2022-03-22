@@ -2,10 +2,16 @@ import WinnerIcon from '../../assets/undraw_winners.svg';
 
 import './results.css';
 
-const Results = ({ scores, setScores, setFinalized }) => {
-  const handleClick = () => {
+const Results = ({ scores, setScores, setFinalized, setInitialized }) => {
+  const handleTryAgain = () => {
     setScores(0);
     setFinalized(false);
+  };
+
+  const handleHome = () => {
+    setScores(0);
+    setFinalized(false);
+    setInitialized(false);
   };
 
   return (
@@ -19,12 +25,14 @@ const Results = ({ scores, setScores, setFinalized }) => {
         </p>
       </div>
 
-      <button
-        className="try-again-btn"
-        onClick={() => handleClick()}
-      >
-        Try again
-      </button>
+      <div className="btn-container">
+        <button className="primary-button" onClick={() => handleTryAgain()}>
+          Try again
+        </button>
+        <button className="secondary-button" onClick={() => handleHome()}>
+          Home
+        </button>
+      </div>
     </div>
   );
 }

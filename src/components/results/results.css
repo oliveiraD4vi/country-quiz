@@ -28,20 +28,7 @@
   color: #07e49c;
 }
 
-.results-container button {
-  padding: 1em 3em;
-  border: 2px solid #1D355D;
-  color: #1D355D;
-  box-sizing: border-box;
-  border-radius: 12px;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #fff;
-  transition: all 0.2s ease-in-out;
-}
-
-.results-container button:hover {
-  color: #fff;
-  cursor: pointer;
-  background-color: #1D355D;
+.results-container .btn-container {
+  display: grid;
+  grid-gap: 0.5em;
 }
