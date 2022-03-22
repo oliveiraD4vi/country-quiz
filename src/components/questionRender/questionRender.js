@@ -39,9 +39,13 @@ const QuestionRender = ({ setFinalized, setScores }) => {
             text: data[numbers[i]].name.common,
             correct: true,
           });
-          setTitle(
-            `${data[numbers[i]].capital} is the capital of`
-          );
+          if (!data[numbers[i]].capital)
+            setTitle('Which one do NOT have a capital?');
+          else {
+            setTitle(
+              `${data[numbers[i]].capital} is the capital of`
+            );
+          }
         } else {
           list.push({
             id: item,
