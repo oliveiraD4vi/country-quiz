@@ -10,6 +10,7 @@ const Results = ({
   setFinalized,
   setInitialized,
   setSeeRecords,
+  setLoading,
   setData,
 }) => {
   const handleTryAgain = () => {
@@ -50,6 +51,7 @@ const Results = ({
     setFinalized(false);
     setInitialized(false);
     setData(null);
+    setLoading(true);
     setName('');
   }
 

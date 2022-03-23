@@ -43,6 +43,7 @@ export default function App() {
                     setFinalized={setFinalized}
                     setSeeRecords={setSeeRecords}
                     setInitialized={setInitialized}
+                    setLoading={setLoading}
                   />
                 : initialized
                 ? <QuestionRender
