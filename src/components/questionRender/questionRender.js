@@ -97,7 +97,7 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
       setLoading(true);
       fetchData();
     }
-  }, [setFinalized, data]);
+  }, [setFinalized, data, setLoading]);
 
   const nextQuestion = () => {
     if (selectedOption.correct) {
