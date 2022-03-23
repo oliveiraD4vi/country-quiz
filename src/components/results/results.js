@@ -9,7 +9,8 @@ const Results = ({
   setScores,
   setFinalized,
   setInitialized,
-  setSeeRecords
+  setSeeRecords,
+  setData,
 }) => {
   const handleTryAgain = () => {
     setScores(0);
@@ -48,6 +49,7 @@ const Results = ({
     setScores(0);
     setFinalized(false);
     setInitialized(false);
+    setData(null);
     setName('');
   }
 

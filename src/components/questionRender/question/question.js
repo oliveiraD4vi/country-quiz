@@ -8,7 +8,7 @@ const Question = ({ img, title, options, next, selectedOption }) => {
       {img ? <img className="flag" src={img} alt="flag" /> : null}
       <h2>{title}</h2>
       <div className="options">
-        {options.map((option) => (
+        {options && options.map((option) => (
           <Option
             id={option.id}
             key={option.id}

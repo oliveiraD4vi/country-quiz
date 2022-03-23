@@ -12,7 +12,9 @@ import './styles/global.css';
 
 export default function App() {
   const [name, setName] = useState('');
+  const [data, setData] = useState(null);
   const [scores, setScores] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [finalized, setFinalized] = useState(false);
   const [seeRecords, setSeeRecords] = useState(false);
   const [initialized, setInitialized] = useState(false);
@@ -36,15 +38,19 @@ export default function App() {
                     name={name}
                     scores={scores}
                     setName={setName}
+                    setData={setData}
                     setScores={setScores}
                     setFinalized={setFinalized}
                     setSeeRecords={setSeeRecords}
                     setInitialized={setInitialized}
                   />
                 : initialized
-                ? <QuestionRender 
+                ? <QuestionRender
                     setScores={setScores}
                     setFinalized={setFinalized}
+                    data={data}
+                    loading={loading}
+                    setLoading={setLoading}
                   />
                 : seeRecords
                 ? <Records setSeeRecords={setSeeRecords} />
@@ -53,6 +59,8 @@ export default function App() {
                     setName={setName}
                     setSeeRecords={setSeeRecords}
                     setInitialized={setInitialized}
+                    setLoading={setLoading}
+                    setData={setData}
                   />
                 }
             </div>

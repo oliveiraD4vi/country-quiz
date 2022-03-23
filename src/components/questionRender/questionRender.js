@@ -1,16 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { SelectedOptionContext } from '../../contexts/SelectedOptionContext';
 
-import axios from 'axios';
 import Spin from '../spin/spin';
 import Question from "./question/question";
 
-const QuestionRender = ({ setFinalized, setScores }) => {
+const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) => {
   const { selectedOption, setSelectedOption } = useContext(SelectedOptionContext);
 
   const [flag, setFlag] = useState(null);
   const [title, setTitle] = useState('');
-  const [loading, setLoading] = useState(true);
   const [optionsList, setOptionsList] = useState(null);
 
   const getList = (data, type) => {
@@ -87,31 +85,26 @@ const QuestionRender = ({ setFinalized, setScores }) => {
     return numbers;
   }
 
-  const render = async () => {
-    try {
-      const response = await axios.get(
-        'https://restcountries.com/v3.1/all?fields=name,capital,flags'
-      );
-      const data = response.data;
-      setOptionsList(
-        getList(data, Math.floor(Math.random() * 2))
-      );
-      setLoading(false);
-    } catch (responseError) {
-      render();
-    }
+  const fetchData = async () => {
+    setOptionsList(
+      getList(data, Math.floor(Math.random() * 2))
+    );
+    setLoading(false);
   }
 
   useEffect(() => {
-    render();
-  }, [setFinalized]);
+    if (data) {
+      setLoading(true);
+      fetchData();
+    }
+  }, [setFinalized, data]);
 
   const nextQuestion = () => {
     if (selectedOption.correct) {
       setScores((state) => (state+1));
       setLoading(true);
       setSelectedOption(null);
-      render();
+      fetchData();
     } else {
       setSelectedOption(null);
       setFinalized(true);
