@@ -13,10 +13,6 @@ const QuestionRender = ({ setFinalized, setScores }) => {
   const [loading, setLoading] = useState(true);
   const [optionsList, setOptionsList] = useState(null);
 
-  useEffect(() => {
-    render();
-  }, [setFinalized]);
-
   const getList = (data, type) => {
     const numbers = getNumbers(data.length);
     const n = Math.floor(Math.random() * 4);
@@ -102,14 +98,18 @@ const QuestionRender = ({ setFinalized, setScores }) => {
       );
       setLoading(false);
     } catch (responseError) {
-      console.log(responseError);
       render();
     }
   }
 
+  useEffect(() => {
+    render();
+  }, [setFinalized]);
+
   const nextQuestion = () => {
     if (selectedOption.correct) {
       setScores((state) => (state+1));
+      setLoading(true);
       setSelectedOption(null);
       render();
     } else {

@@ -7,7 +7,7 @@ const Records = ({ setSeeRecords }) => {
   useEffect(() => {
     if (localStorage.getItem("records"))
       setRecordsList(JSON.parse(localStorage.getItem("records")));
-  }, [localStorage.getItem("records")]);
+  }, []);
 
   const handleDeleteHistory = () => {
     setRecordsList(null);
