@@ -73,7 +73,7 @@
   margin-bottom: 0.5em;
 }
 
-.records-container .btn-container .secondary-button {
+.records-container .btn-container .secondary-button:disabled {
   color: #ddd;
   cursor: not-allowed;
 }
