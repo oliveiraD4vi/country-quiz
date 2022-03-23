@@ -2,18 +2,54 @@ import WinnerIcon from '../../assets/undraw_winners.svg';
 
 import './results.css';
 
-const Results = ({ name, setName, scores, setScores, setFinalized, setInitialized }) => {
+const Results = ({
+  name,
+  setName,
+  scores,
+  setScores,
+  setFinalized,
+  setInitialized,
+  setSeeRecords
+}) => {
   const handleTryAgain = () => {
     setScores(0);
     setFinalized(false);
   };
 
   const handleHome = () => {
+    localStorage.setItem(
+      "records", JSON.stringify(fetchLocalStorage())
+    );
+    leave();
+  };
+
+  const handleRecords = () => {
+    localStorage.setItem(
+      "records", JSON.stringify(fetchLocalStorage())
+    );
+    leave();
+    setSeeRecords(true);
+  }
+
+  const fetchLocalStorage = () => {
+    let array = [];
+    
+    if (localStorage.getItem("records"))
+      array = JSON.parse(localStorage.getItem("records"));
+    array.push({
+      name: name,
+      scores: scores,
+    });
+
+    return array;
+  }
+
+  const leave = () => {
     setScores(0);
     setFinalized(false);
     setInitialized(false);
     setName('');
-  };
+  }
 
   return (
     <div className="results-container">
@@ -42,6 +78,10 @@ const Results = ({ name, setName, scores, setScores, setFinalized, setInitialize
           Home
         </button>
       </div>
+
+      <span className="records-link" onClick={() => handleRecords()}>
+        You can also see the previous records here...
+      </span>
     </div>
   );
 }

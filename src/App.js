@@ -3,6 +3,7 @@ import { SelectedOptionProvider } from './contexts/SelectedOptionContext';
 
 import Init from './components/init/init';
 import Results from './components/results/results';
+import Records from './components/records/records';
 import QuestionRender from './components/questionRender/questionRender';
 
 import TopIcon from './assets/undraw_adventure.svg';
@@ -13,6 +14,7 @@ export default function App() {
   const [name, setName] = useState('');
   const [scores, setScores] = useState(0);
   const [finalized, setFinalized] = useState(false);
+  const [seeRecords, setSeeRecords] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
   return (
@@ -36,6 +38,7 @@ export default function App() {
                     setName={setName}
                     setScores={setScores}
                     setFinalized={setFinalized}
+                    setSeeRecords={setSeeRecords}
                     setInitialized={setInitialized}
                   />
                 : initialized
@@ -43,9 +46,12 @@ export default function App() {
                     setScores={setScores}
                     setFinalized={setFinalized}
                   />
+                : seeRecords
+                ? <Records setSeeRecords={setSeeRecords} />
                 : <Init
                     name={name}
                     setName={setName}
+                    setSeeRecords={setSeeRecords}
                     setInitialized={setInitialized}
                   />
                 }

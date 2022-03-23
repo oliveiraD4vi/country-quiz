@@ -1,6 +1,6 @@
 import './init.css';
 
-const Init = ({ name, setName, setInitialized }) => {
+const Init = ({ name, setName, setInitialized, setSeeRecords }) => {
   return (
     <div className="init-container">
       <h2>Hi, nice to met you</h2>
@@ -22,6 +22,12 @@ const Init = ({ name, setName, setInitialized }) => {
         onClick={() => setInitialized(true)}
       >
         Start
+      </button>
+      <button
+        className="secondary-button"
+        onClick={() => setSeeRecords(true)}
+      >
+        See records
       </button>
     </div>
   );
