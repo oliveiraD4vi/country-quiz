@@ -9,6 +9,11 @@ const Records = ({ setSeeRecords }) => {
     if (localStorage.getItem("records"))
       setRecordsList(JSON.parse(localStorage.getItem("records")));
   }, [localStorage.getItem("records")]);
+
+  const handleDeleteHistory = () => {
+    setRecordsList(null);
+    localStorage.removeItem("records");
+  }
   
   return (
     <div className="records-container">
@@ -29,13 +34,22 @@ const Records = ({ setSeeRecords }) => {
             </span>
           }
       </div>
-
-      <button
-        className="secondary-button"
-        onClick={() => setSeeRecords(false)}
-      >
-        Go back home
-      </button>
+      
+      <div className="btn-container">
+        <button
+          className="primary-button"
+          onClick={() => setSeeRecords(false)}
+        >
+          Go back home
+        </button>
+        <button
+          className="secondary-button"
+          disabled={recordsList ? false : true}
+          onClick={() => handleDeleteHistory()}
+        >
+          Delete history
+        </button>
+      </div>
     </div>
   );
 };

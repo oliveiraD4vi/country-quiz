@@ -80,7 +80,7 @@ const Results = ({
       </div>
 
       <span className="records-link" onClick={() => handleRecords()}>
-        You can also see the previous records here...
+        You can also see the records here...
       </span>
     </div>
   );
