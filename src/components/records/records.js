@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './records.css';
 
 const Records = ({ setSeeRecords }) => {
@@ -23,7 +22,7 @@ const Records = ({ setSeeRecords }) => {
       }`}>
         {recordsList
           ? recordsList.map((record) => (
-            <div className="record">
+            <div className="record" key={Math.random()}>
               <p>{record.name}</p>
               <p>{record.scores}</p>
             </div>
