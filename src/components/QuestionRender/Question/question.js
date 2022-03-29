@@ -1,4 +1,4 @@
-import Option from '../option/option';
+import Option from '../Option/option';
 
 import './question.css';
 

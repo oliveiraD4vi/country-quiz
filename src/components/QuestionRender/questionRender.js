@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import { SelectedOptionContext } from '../../contexts/SelectedOptionContext';
+import { SelectedOptionContext } from '../../Contexts/SelectedOptionContext';
 
-import Spin from '../spin/spin';
-import Question from "./question/question";
+import Spin from '../Spin/spin';
+import Question from "./Question/question";
 
 const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) => {
   const { selectedOption, setSelectedOption } = useContext(SelectedOptionContext);

@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { SelectedOptionProvider } from './contexts/SelectedOptionContext';
+import { SelectedOptionProvider } from './Contexts/SelectedOptionContext';
 
-import Init from './components/init/init';
-import Results from './components/results/results';
-import Records from './components/records/records';
-import QuestionRender from './components/questionRender/questionRender';
+import Init from './components/Init/init';
+import Results from './components/Results/results';
+import Records from './components/Records/records';
+import QuestionRender from './components/QuestionRender/questionRender';
 
 import TopIcon from './assets/undraw_adventure.svg';
 
-import './styles/global.css';
+import './Styles/global.css';
 
 export default function App() {
   const [name, setName] = useState('');

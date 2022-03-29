@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SelectedOptionContext } from '../../../contexts/SelectedOptionContext';
+import { SelectedOptionContext } from '../../../Contexts/SelectedOptionContext';
 
 import DoneIcon from '../../../assets/icons/check-icon.svg';
 import CloseIcon from '../../../assets/icons/close-icon.svg';
