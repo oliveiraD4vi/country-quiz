@@ -15,7 +15,7 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
     const numbers = getNumbers(data.length);
     const n = Math.floor(Math.random() * 4);
     let list = [];
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < numbers.length; i++) {
       let item;
       switch (i) {
         case 0: item = 'A'; break;
@@ -74,14 +74,14 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
 
   const getNumbers = (tam) => {
     let numbers = [];
-    for (var i = 0; i < 4; i++) {
+    do {
       let exists = false;
       const number = Math.floor(Math.random() * tam);
       numbers.forEach(element => {
         if (element === number) exists = true;
       });
       if (!exists) numbers.push(number);
-    }
+    } while (numbers.length < 4);
     return numbers;
   }
 

@@ -5,7 +5,7 @@ import './question.css';
 const Question = ({ img, title, options, next, selectedOption }) => {
   return (
     <div className="question-container">
-      {img ? <img className="flag" src={img} alt="flag" /> : null}
+      {img ? <img loading="eager" className="flag" src={img} alt="flag" /> : null}
       <h2>{title}</h2>
       <div className="options">
         {options && options.map((option) => (

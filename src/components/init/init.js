@@ -3,12 +3,8 @@ import axios from 'axios';
 import './init.css';
 
 const Init = ({ name, setName, setInitialized, setSeeRecords, setData, setLoading }) => {
-  const handleStart = () => {
-    setInitialized(true);
-    render();
-  }
-
   const render = async () => {
+    setInitialized(true);
     try {
       const response = await axios.get(
         'https://restcountries.com/v3.1/all?fields=name,capital,flags'
@@ -38,7 +34,7 @@ const Init = ({ name, setName, setInitialized, setSeeRecords, setData, setLoadin
       <button
         className="primary-button"
         disabled={name ? false : true}
-        onClick={() => handleStart()}
+        onClick={() => render()}
       >
         Start
       </button>
