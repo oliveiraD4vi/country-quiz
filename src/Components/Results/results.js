@@ -1,4 +1,4 @@
-import WinnerIcon from '../../assets/undraw_winners.svg';
+import WinnerIcon from '../../Assets/undraw_winners.svg';
 
 import './results.css';
 

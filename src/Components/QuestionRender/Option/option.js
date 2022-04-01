@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { SelectedOptionContext } from '../../../Contexts/SelectedOptionContext';
 
-import DoneIcon from '../../../assets/icons/check-icon.svg';
-import CloseIcon from '../../../assets/icons/close-icon.svg';
+import DoneIcon from '../../../Assets/Icons/check-icon.svg';
+import CloseIcon from '../../../Assets/Icons/close-icon.svg';
 
 import './option.css';
 
