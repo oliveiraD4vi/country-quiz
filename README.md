@@ -18,11 +18,9 @@
 
 ## Overview
 
-![screenshot]('../../src/Assets/Overview.png')
+<img src="https://github.com/oliveiraD4vi/country-quiz/blob/develop/src/Assets/Overview.png" />
 
-### Built With
-
-- [React](https://reactjs.org/)
+### Built With [React Js](https://reactjs.org/)
 
 ## Features
 
