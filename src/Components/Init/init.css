@@ -1,0 +1,57 @@
+.init-container {
+  display: grid;
+  grid-gap: 0.5em;
+  padding: 3em 0;
+}
+
+.init-container h2 {
+  font-size: 24px;
+  color: #2F527B;
+}
+
+.init-container p {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.init-container .name-input {
+  padding: 0 5em;
+  margin: 1em 0 1.5em;
+}
+
+.init-container .name-input label {
+  display: grid;
+}
+
+.init-container .name-input label p {
+  color: #2F527B;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  text-indent: 10px;
+}
+
+.init-container .name-input label input {
+  border: none !important;
+  background-color: #eee;
+  border-radius: 5px;
+  font-size: 1em;
+  text-indent: 5px;
+  color: #f2a728;
+}
+
+input[type="text" i] {
+  padding: 10px 5px;
+}
+
+.init-container .name-input label input:focus-visible {
+  outline: #eee;
+}
+
+.init-container button:disabled {
+  cursor: not-allowed;
+  border: 2px solid #ddd;
+  background-color: #ddd;
+  color: #aaa;
+}

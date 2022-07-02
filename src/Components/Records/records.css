@@ -1,0 +1,79 @@
+.records-container {
+  display: grid;
+  grid-gap: 0.5em;
+  padding: 3em 0;
+}
+
+.records-container h2 {
+  font-size: 24px;
+  color: #2F527B;
+  text-align: center;
+}
+
+.records-container .records {
+  max-height: 300px;
+  overflow-y: scroll;
+  padding: 15px 5px;
+}
+
+.records-container .no-records {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  text-align: center;
+}
+
+.records-container .records::-webkit-scrollbar {
+	width: 8px;
+	background-color: transparent;
+	border-radius: 5px;
+}
+
+.records-container .records::-webkit-scrollbar-thumb {
+	background-color: #ddd;
+	border-radius: 5px;
+}
+
+.records-container .records .record {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 5px;
+}
+
+.records-container .records .record:nth-child(even) {
+  background-color: #eee;
+}
+
+.records-container .records .record p {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Montserrat', sans-serif;
+  color: #2F527B;
+}
+
+.records-container .records .record p:nth-child(2) {
+  color: #f2a728;
+}
+
+.records-container span {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Montserrat', sans-serif;
+  color: tomato;
+}
+
+.records-container .btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.records-container .btn-container .primary-button {
+  margin-bottom: 0.5em;
+}
+
+.records-container .btn-container .secondary-button:disabled {
+  color: #ddd;
+  cursor: not-allowed;
+}

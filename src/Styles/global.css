@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+/*general*/
+
+* {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-image: url('../Assets/background.png');
+}
+
+/*main*/
+
+.app .app-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.app .app-main .app-top p {
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation-name: fadeIn;
+  animation-duration: 1000ms;
+}
+
+.app .app-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app .app-top .top-icon {
+  z-index: 2;
+  margin-bottom: -40px;
+  animation-name: fadeIn;
+  animation-duration: 1000ms;
+}
+
+.app .app-top p {
+  align-self: flex-end;
+}
+
+.app .card-with-padding {
+  margin: 10px 0;
+  min-width: 400px;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 2px 2px 15px rgba(2, 2, 2, 0.2);
+  animation-name: fadeIn;
+  animation-duration: 1000ms;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+/*footer*/
+
+.app .app-footer {
+  display: flex;
+  color: #fff;
+  animation-name: fadeIn;
+  animation-duration: 1000ms;
+}
+
+.app .app-footer a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+
+.app .app-footer a:hover {
+  color: #f2a728;
+}
+
+/*global*/
+
+.primary-button {
+  padding: 1em 3em;
+  border: 2px solid #1D355D;
+  background-color: #1D355D;
+  color: #fff;
+  box-sizing: border-box;
+  border-radius: 12px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+.primary-button:hover {
+  cursor: pointer;
+  background-color: #2F527B;
+  border: 2px solid #2F527B;
+}
+
+.secondary-button {
+  color: #f2a728;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: transparent;
+}
+
+.secondary-button:hover {
+  cursor: pointer;
+  color: #fcb439;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
