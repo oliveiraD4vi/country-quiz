@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { SelectedOptionContext } from '../../Contexts/SelectedOptionContext';
 
 import Spin from '../Spin/spin';
@@ -11,7 +11,7 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
   const [title, setTitle] = useState('');
   const [optionsList, setOptionsList] = useState(null);
 
-  const getList = (data, type) => {
+  const getList = useCallback((data, type) => {
     const numbers = getNumbers(data.length);
     const n = Math.floor(Math.random() * 4);
     let list = [];
@@ -70,7 +70,7 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
       }
     }
     return list;
-  }
+  }, []);
 
   const getNumbers = (tam) => {
     let numbers = [];
@@ -85,19 +85,19 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
     return numbers;
   }
 
-  const fetchData = async () => {
+  const fetchData = useCallback(() => {
     setOptionsList(
       getList(data, Math.floor(Math.random() * 2))
     );
     setLoading(false);
-  }
+  }, [data, getList, setLoading]);
 
   useEffect(() => {
     if (data) {
       setLoading(true);
       fetchData();
     }
-  }, [setFinalized, data, setLoading]);
+  }, [setFinalized, data, setLoading, fetchData]);
 
   const nextQuestion = () => {
     if (selectedOption.correct) {
