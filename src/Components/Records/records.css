@@ -1,6 +1,6 @@
 .records-container {
   display: grid;
-  grid-gap: 0.5em;
+  gap: 0.5em;
   padding: 3em 0;
 }
 
@@ -76,4 +76,75 @@
 .records-container .btn-container .secondary-button:disabled {
   color: #ddd;
   cursor: not-allowed;
+}
+
+@media screen and (max-width: 1200px) {
+  .records-container h2 {
+    font-size: 20px;
+  }
+
+  .records-container .records .record p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .records-container span {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .records-container {
+    padding: 2em 0;
+  }
+
+  .records-container h2 {
+    font-size: 18px;
+  }
+
+  .records-container .records {
+    max-height: 280px;
+  }
+
+  .records-container .records .record p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .records-container span {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .records-container {
+    padding: 1em 0;
+  }
+
+  .records-container h2 {
+    font-size: 16px;
+  }
+
+  .records-container .records {
+    max-height: 250px;
+    padding: 10px 5px;
+  }
+
+  .records-container .records .record p {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .records-container span {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .records-container h2 {
+    font-size: 14px;
+  }
 }

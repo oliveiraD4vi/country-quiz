@@ -1,17 +1,26 @@
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { SelectedOptionContext } from '../../Contexts/SelectedOptionContext';
 
 import Spin from '../Spin/spin';
 import Question from "./Question/question";
 
-const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) => {
+const QuestionRender = ({
+  setFinalized,
+  setScores,
+  data,
+  loading,
+  setLoading,
+  setName,
+  setInitialized,
+  setData,
+}) => {
   const { selectedOption, setSelectedOption } = useContext(SelectedOptionContext);
 
   const [flag, setFlag] = useState(null);
   const [title, setTitle] = useState('');
   const [optionsList, setOptionsList] = useState(null);
 
-  const getList = (data, type) => {
+  const getList = useCallback((data, type) => {
     const numbers = getNumbers(data.length);
     const n = Math.floor(Math.random() * 4);
     let list = [];
@@ -70,6 +79,16 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
       }
     }
     return list;
+  }, []);
+
+  const leave = () => {
+    setScores(0);
+    setFinalized(false);
+    setInitialized(false);
+    setData(null);
+    setLoading(true);
+    setName('');
+    setSelectedOption(null);
   }
 
   const getNumbers = (tam) => {
@@ -85,19 +104,19 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
     return numbers;
   }
 
-  const fetchData = async () => {
+  const fetchData = useCallback(() => {
     setOptionsList(
       getList(data, Math.floor(Math.random() * 2))
     );
     setLoading(false);
-  }
+  }, [data, getList, setLoading]);
 
   useEffect(() => {
     if (data) {
       setLoading(true);
       fetchData();
     }
-  }, [setFinalized, data, setLoading]);
+  }, [setFinalized, data, setLoading, fetchData]);
 
   const nextQuestion = () => {
     if (selectedOption.correct) {
@@ -120,6 +139,7 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
       <Question
         img={flag}
         title={title}
+        leave={leave}
         next={nextQuestion}
         options={optionsList}
         setFinalized={setFinalized}

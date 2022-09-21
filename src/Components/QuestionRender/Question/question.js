@@ -2,7 +2,7 @@ import Option from '../Option/option';
 
 import './question.css';
 
-const Question = ({ img, title, options, next, selectedOption }) => {
+const Question = ({ img, leave, title, options, next, selectedOption }) => {
   return (
     <div className="question-container">
       {img ? <img loading="eager" className="flag" src={img} alt="flag" /> : null}
@@ -18,12 +18,21 @@ const Question = ({ img, title, options, next, selectedOption }) => {
         ))}
       </div>
 
-      <div className="next-btn">
-        {selectedOption && (
-          <button onClick={next}>
-            Next
-          </button>
-        )}
+      <div className="next-btn-container">
+        <button
+        className="cancel-btn"
+          onClick={leave}
+        >
+          Cancelar
+        </button>
+
+        <button
+          className="next-btn"
+          disabled={selectedOption ? false : true}
+          onClick={next}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

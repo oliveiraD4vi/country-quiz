@@ -1,11 +1,11 @@
 .question-container {
-  margin-top: 2.5em;
+  margin-top: 1.5em;
 }
 
 .question-container .flag {
   width: 5em;
   border: 1px solid #2F527B;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .question-container h2 {
@@ -15,17 +15,31 @@
 
 .question-container .options {
   display: grid;
-  grid-gap: 1em;
+  gap: 1em;
   padding-top: 30px;
 }
 
-.question-container .next-btn {
+.question-container .next-btn-container {
   display: flex;
   padding-top: 2em;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.question-container .next-btn button {
+.question-container .next-btn-container .cancel-btn {
+  font-size: 18px;
+  font-weight: bold;
+  color: #F9A826;
+  border-width: 0 !important;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.question-container .next-btn-container .cancel-btn:hover {
+  cursor: pointer;
+}
+
+.question-container .next-btn-container .next-btn {
   font-size: 18px;
   font-weight: bold;
   color: #F9A826;
@@ -36,8 +50,99 @@
   transition: all 0.2s ease-in-out;
 }
 
-.question-container .next-btn button:hover {
+.question-container .next-btn-container .next-btn:hover {
   cursor: pointer;
   color: #fff;
   background-color: #F9A826;
+}
+
+.question-container .next-btn-container .next-btn:disabled {
+  color: #C2C2C2;
+  border: 2px solid #C2C2C2;
+  background-color: #D9D9D9;
+}
+
+@media screen and (max-width: 1200px) {
+  .question-container {
+    margin-top: 1em;
+  }
+
+  .question-container .flag {
+    margin-bottom: 0.5em;
+  }
+
+  .question-container h2 {
+    font-size: 20px;
+  }
+
+  .question-container .options {
+    padding-top: 20px;
+  }
+
+  .question-container .next-btn-container {
+    padding-top: 1em;
+  }
+
+  .question-container .next-btn-container .cancel-btn {
+    font-size: 16px;
+  }
+
+  .question-container .next-btn-container .next-btn {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .question-container h2 {
+    font-size: 18px;
+  }
+
+  .question-container .options {
+    gap: 0.5em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .question-container .flag {
+    width: 3em;
+    margin-bottom: 0.5em;
+  }
+
+  .question-container h2 {
+    font-size: 16px;
+  }
+
+  .question-container .options {
+    padding-top: 15px;
+  }
+
+  .question-container .next-btn-container {
+    padding-top: 0.5em;
+  }
+
+  .question-container .next-btn-container .cancel-btn {
+    font-size: 14px;
+  }
+
+  .question-container .next-btn-container .next-btn {
+    font-size: 14px;
+    border: 1px solid #F9A826;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+  }
+
+  .question-container .next-btn-container .next-btn:disabled {
+    border: 1px solid #C2C2C2;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .question-container h2 {
+    font-size: 14px;
+  }
+
+  .question-container .next-btn-container .cancel-btn,
+  .question-container .next-btn-container .next-btn {
+    font-size: 12px;
+  }
 }

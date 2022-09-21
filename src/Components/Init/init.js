@@ -19,7 +19,7 @@ const Init = ({ name, setName, setInitialized, setSeeRecords, setData, setLoadin
   return (
     <div className="init-container">
       <h2>Hi, nice to met you</h2>
-      <p>To start the quiz you have to share your name with us,<br />so we can remember your records!</p>
+      <p>To start the quiz you have to share your name with us, so we can remember your records!</p>
 
       <div className="name-input">
         <label>

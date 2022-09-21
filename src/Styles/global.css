@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
-/*general*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 * {
   margin: 0;
@@ -17,8 +26,6 @@
   background-size: cover;
   background-image: url('../Assets/background.png');
 }
-
-/*main*/
 
 .app .app-main {
   display: flex;
@@ -67,8 +74,6 @@
   padding: 50px;
 }
 
-/*footer*/
-
 .app .app-footer {
   display: flex;
   color: #fff;
@@ -86,8 +91,6 @@
 .app .app-footer a:hover {
   color: #f2a728;
 }
-
-/*global*/
 
 .primary-button {
   padding: 1em 3em;
@@ -122,13 +125,91 @@
   color: #fcb439;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
+@media screen and (max-width: 1200px) {
+  .app .app-main .app-top p {
+    font-size: 32px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+}
+
+@media screen and (max-width: 1024px) {
+  .app .app-main .app-top p {
+    font-size: 28px;
+  }
+
+  .app .app-top .top-icon {
+    width: 130px;
+    margin-left: 20px;
+  }
+
+  .app .card-with-padding {
+    min-width: auto !important;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .loading-container {
+    padding: 25px;
+  }
+
+  .primary-button {
+    padding: 1em 2em;
+    border: 1px solid #1D355D;
+    border-radius: 10px;
+  }
+
+  .primary-button:hover {
+    border: 1px solid #2F527B;
+  }
+
+  .app .app-footer {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app .app-main .app-top p {
+    font-size: 24px;
+  }
+
+  .app .app-top .top-icon {
+    margin-bottom: -30px;
+    margin-left: 15px;
+    width: 115px;
+  }
+
+  .app .card-with-padding {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .app .app-footer {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .app .app-main .app-top p {
+    font-size: 20px;
+  }
+
+  .app .app-top .top-icon {
+    margin-bottom: -25px;
+    margin-left: 10px;
+    width: 100px;
+  }
+
+  .app .card-with-padding {
+    margin: 5px 0;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .loading-container {
+    padding: 20px;
+  }
+
+  .primary-button {
+    padding: 0.5em 1em;
+    border-radius: 5px;
   }
 }

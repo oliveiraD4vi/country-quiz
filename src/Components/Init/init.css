@@ -1,6 +1,6 @@
 .init-container {
   display: grid;
-  grid-gap: 0.5em;
+  gap: 0.5em;
   padding: 3em 0;
 }
 
@@ -13,6 +13,7 @@
   font-size: 18px;
   line-height: 24px;
   font-family: 'Montserrat', sans-serif;
+  max-width: 500px;
 }
 
 .init-container .name-input {
@@ -29,7 +30,6 @@
   font-weight: bold;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
-  text-indent: 10px;
 }
 
 .init-container .name-input label input {
@@ -37,7 +37,6 @@
   background-color: #eee;
   border-radius: 5px;
   font-size: 1em;
-  text-indent: 5px;
   color: #f2a728;
 }
 
@@ -54,4 +53,102 @@ input[type="text" i] {
   border: 2px solid #ddd;
   background-color: #ddd;
   color: #aaa;
+}
+
+@media screen and (max-width: 1200px) {
+  .init-container {
+    padding: 2em 0;
+  }
+
+  .init-container h2 {
+    font-size: 20px;
+  }
+
+  .init-container p {
+    font-size: 16px;
+    line-height: 20px;
+    max-width: 400px;
+  }
+
+  .init-container .name-input {
+    margin: 1em 0;
+  }
+
+  .init-container .name-input label p {
+    font-size: 16px;
+  }
+
+  input[type="text" i] {
+    padding: 10px 15px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .init-container h2 {
+    font-size: 16px;
+  }
+
+  .init-container p {
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 300px;
+  }
+
+  .init-container .name-input {
+    padding: 0 3em;
+  }
+
+  .init-container .name-input label p {
+    font-size: 14px;
+  }
+
+  input[type="text" i] {
+    padding: 5px 10px;
+  }
+
+  .init-container button:disabled {
+    border: 1px solid #ddd;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .init-container {
+    padding: 1em 0;
+  }
+
+  .init-container h2 {
+    font-size: 14px;
+  }
+
+  .init-container p {
+    max-width: 280px;
+  }
+
+  .init-container .name-input label p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .init-container h2 {
+    font-size: 12px;
+  }
+
+  .init-container p {
+    font-size: 10px;
+    line-height: 12px;
+    max-width: 250px;
+  }
+
+  .init-container .name-input {
+    margin: 10px 0;
+  }
+
+  .init-container .name-input label p {
+    font-size: 10px;
+  }
+
+  .init-container .name-input label input {
+    font-size: 12px;
+  }
 }
