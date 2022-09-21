@@ -4,7 +4,16 @@ import { SelectedOptionContext } from '../../Contexts/SelectedOptionContext';
 import Spin from '../Spin/spin';
 import Question from "./Question/question";
 
-const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) => {
+const QuestionRender = ({
+  setFinalized,
+  setScores,
+  data,
+  loading,
+  setLoading,
+  setName,
+  setInitialized,
+  setData,
+}) => {
   const { selectedOption, setSelectedOption } = useContext(SelectedOptionContext);
 
   const [flag, setFlag] = useState(null);
@@ -72,6 +81,15 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
     return list;
   }, []);
 
+  const leave = () => {
+    setScores(0);
+    setFinalized(false);
+    setInitialized(false);
+    setData(null);
+    setLoading(true);
+    setName('');
+  }
+
   const getNumbers = (tam) => {
     let numbers = [];
     do {
@@ -120,6 +138,7 @@ const QuestionRender = ({ setFinalized, setScores, data, loading, setLoading }) 
       <Question
         img={flag}
         title={title}
+        leave={leave}
         next={nextQuestion}
         options={optionsList}
         setFinalized={setFinalized}

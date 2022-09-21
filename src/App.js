@@ -47,11 +47,14 @@ export default function App() {
                   />
                 : initialized
                 ? <QuestionRender
-                    setScores={setScores}
-                    setFinalized={setFinalized}
                     data={data}
                     loading={loading}
+                    setName={setName}
+                    setData={setData}
+                    setScores={setScores}
                     setLoading={setLoading}
+                    setFinalized={setFinalized}
+                    setInitialized={setInitialized}
                   />
                 : seeRecords
                 ? <Records setSeeRecords={setSeeRecords} />
