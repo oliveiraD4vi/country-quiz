@@ -137,6 +137,10 @@
 }
 
 @media screen and (max-width: 375px) {
+  .question-container h2 {
+    font-size: 14px;
+  }
+
   .question-container .next-btn-container .cancel-btn,
   .question-container .next-btn-container .next-btn {
     font-size: 12px;
