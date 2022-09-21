@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+.results-container img {
+  width: 70%;
+}
+
 .results-container .name {
   margin: 1em 0 !important;
 }
@@ -52,4 +56,89 @@
 .results-container .records-link:hover {
   cursor: pointer;
   color: #2F527B;
+}
+
+@media screen and (max-width: 1200px) {
+  .results-container .name p span {
+    font-size: 16px !important;
+  }
+
+  .results-container .results-txt h1 {
+    font-size: 36px;
+  }
+
+  .results-container .results-txt p {
+    font-size: 16px;
+  }
+
+  .results-container .results-txt p span {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .results-container .name p span {
+    font-size: 14px !important;
+  }
+
+  .results-container .results-txt {
+    margin: 2em 0;
+  }
+
+  .results-container .results-txt h1 {
+    font-size: 32px;
+  }
+
+  .results-container .results-txt p {
+    font-size: 14px;
+  }
+
+  .results-container .results-txt p span {
+    font-size: 28px;
+  }
+
+  .results-container .records-link {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .results-container .name {
+    margin: 10px 0 !important;
+  }
+
+  .results-container .name p span {
+    font-size: 12px !important;
+  }
+
+  .results-container .results-txt {
+    margin: 1em 0;
+  }
+
+  .results-container .results-txt h1 {
+    font-size: 28px;
+  }
+
+  .results-container .results-txt p {
+    font-size: 12px;
+  }
+
+  .results-container .results-txt p span {
+    font-size: 24px;
+  }
+
+  .results-container .records-link {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .results-container .name {
+    margin: 5px 0 !important;
+  }
+
+  .results-container .results-txt {
+    margin: 0.5em 0;
+  }
 }
