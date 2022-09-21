@@ -88,6 +88,7 @@ const QuestionRender = ({
     setData(null);
     setLoading(true);
     setName('');
+    setSelectedOption(null);
   }
 
   const getNumbers = (tam) => {
