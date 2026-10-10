@@ -1,62 +1,45 @@
-<h1 align="center">{Country Quiz}</h1>
+# Quiz de países · Country Quiz
 
-<div align="center">
-   CountryQuiz is an interactive quiz developed as a solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
-</div>
+Quiz de geografia em **português e inglês**, para jogar sozinho ou com amigos em salas.
 
-<div align="center">
-  <h3>
-    <a href="https://{your-demo-link.your-domain}">
-      Demo
-    </a>
-    <span> | </span>
-    <a href="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv">
-      Challenge
-    </a>
-  </h3>
-</div>
+**Jogue:** [country-quiz.coaladev.com.br](https://country-quiz.coaladev.com.br)
 
-## Overview
+- **Sete assuntos:** capitais (nos dois sentidos), bandeiras, continentes, moedas, idiomas,
+  fronteiras e tamanho dos países.
+- **Regras ajustáveis:** quantidade de perguntas, dificuldade (fácil, médio ou difícil) e tempo
+  por pergunta. Pontos extras por responder rápido.
+- **Sozinho:** resultado por assunto, revisão das perguntas erradas e recorde salvo no navegador.
+- **Salas:** crie uma sala, mande o link e joguem a mesma pergunta ao mesmo tempo, com ranking ao
+  vivo. Cada jogador vê o jogo no próprio idioma. Recarregar a página volta para a mesma sala.
 
-<img src="https://github.com/oliveiraD4vi/country-quiz/blob/develop/src/Assets/Overview.png" />
+## Como funciona
 
-### Built With [React Js](https://reactjs.org/)
+As perguntas são geradas por `src/quiz.ts` sem texto, só com códigos (país, moeda, idioma…), e
+cada jogador as lê no próprio idioma (`src/i18n.ts`). O mesmo gerador roda no navegador (modo
+solo) e no servidor de salas (`server/`), que é um processo Node com WebSocket em `/ws` e também
+serve o site.
 
-## Features
+Os dados ficam no repositório (`src/data/countries.json` e `public/flags/`), gerados por
+`npm run snapshot` a partir de fontes abertas:
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv) was to build an application to complete the given user stories.
+- países: [mledoze/countries](https://github.com/mledoze/countries) (ODbL)
+- capitais em português: [Wikidata](https://www.wikidata.org) (CC0)
+- bandeiras: [flagcdn](https://flagcdn.com)
 
-Running this project you will see an initial component that asks your name for mantaining records of your scores. You can click on the START button, iniciating the quiz, or in the button bellow, going to the records history.
-
-Once you have iniciated the quiz, you can see at least two types of questions:
-<ul>
-  <li>Wich country does this flag belong to?</li>
-  <li>[city name] is the capital of?</li>
-</ul>
-
-You will see four options, and you can select one of them.
-
-Once you click on the option you think is the right one, the question will be blocked and the right option will have a green background. If you choose the right one, you click on the NEXT button and continue to play, but if not, the game will end and you will go to the results tab, that will show your score.
-
-From that tab you can go back to home and start the game with another name or you can try again, what will erase your current score and reiniciate the count. You can also go to the records tab and see the previous records.
-
-## API
-
-The questions on this project were made with the <a href="https://restcountries.com/">REST Countries API</a>.
-
-## How To Use
-
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) installed on your computer. After cloning the repository, use the package manager <a href="https://yarnpkg.com/" target="_blank" rel="noreferrer">yarn</a> to install the dependencies with the following comand line
+## Rodando
 
 ```bash
-yarn
+npm install
+npm run dev        # site em http://localhost:5173
+npm run server     # salas em ws://localhost:4702/ws (em outro terminal)
+npm run build && npm start   # site e salas juntos em http://localhost:4702
 ```
-With the project dependencies properly installed, run
+
+Com Docker:
 
 ```bash
-yarn start
+docker build -t country-quiz .
+docker run -p 4702:8080 country-quiz
 ```
-Doing that you will be sended to a page on your browser with the project running.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+Requer Node 22.18 ou mais novo (o servidor roda TypeScript direto).
