@@ -21,7 +21,7 @@ export function setRoomInUrl(code: string | null) {
 }
 
 export function App() {
-  const { t } = useApp();
+  const { t, lang } = useApp();
   const [name, setName] = useState(savedName);
   const [settings, setSettings] = useState(savedSettings);
   const [code, setCode] = useState(codeFromUrl);
@@ -65,6 +65,41 @@ export function App() {
                   onChange={(e) => setName(e.target.value)}
                 />
               </label>
+
+              <div className="online-box">
+                <strong>{t.withFriends}</strong>
+                <span className="muted small">{t.withFriendsHint}</span>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  disabled={!name.trim()}
+                  onClick={() => ensureName() && setScreen({ id: "online", initial: { type: "create", settings } })}
+                >
+                  {t.createRoom}
+                </button>
+                <form
+                  className="join"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (code.length === CODE_LENGTH && ensureName()) setScreen({ id: "online", initial: { type: "join", code } });
+                  }}
+                >
+                  <input
+                    value={code}
+                    placeholder={t.roomCode}
+                    aria-label={t.joinRoom}
+                    maxLength={CODE_LENGTH}
+                    autoCapitalize="characters"
+                    autoComplete="off"
+                    spellCheck={false}
+                    onChange={(e) => setCode(normalizeCode(e.target.value))}
+                  />
+                  <button type="submit" className="btn" disabled={code.length !== CODE_LENGTH || !name.trim()}>
+                    {t.join}
+                  </button>
+                </form>
+                {!name.trim() && <span className="muted small">{t.needName}</span>}
+              </div>
             </section>
 
             <section className="card">
@@ -87,41 +122,7 @@ export function App() {
                   <strong>{t.solo}</strong>
                   <span>{t.soloHint}</span>
                 </button>
-                <button
-                  type="button"
-                  className="mode mode-room"
-                  disabled={!name.trim()}
-                  title={!name.trim() ? t.yourName : undefined}
-                  onClick={() => ensureName() && setScreen({ id: "online", initial: { type: "create", settings } })}
-                >
-                  <strong>{t.createRoom}</strong>
-                  <span>{t.createRoomHint}</span>
-                </button>
               </div>
-              <form
-                className="join"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (code.length === CODE_LENGTH && ensureName()) setScreen({ id: "online", initial: { type: "join", code } });
-                }}
-              >
-                <label>
-                  <span className="label">{t.joinRoom}</span>
-                  <input
-                    value={code}
-                    placeholder={t.roomCode}
-                    maxLength={CODE_LENGTH}
-                    autoCapitalize="characters"
-                    autoComplete="off"
-                    spellCheck={false}
-                    onChange={(e) => setCode(normalizeCode(e.target.value))}
-                  />
-                </label>
-                <button type="submit" className="btn" disabled={code.length !== CODE_LENGTH || !name.trim()}>
-                  {t.join}
-                </button>
-              </form>
-              {!name.trim() && <p className="muted small">{t.yourName} ↑</p>}
             </section>
           </div>
         )}
@@ -132,7 +133,7 @@ export function App() {
 
       <footer className="foot">
         <span>{t.footer}</span>
-        <a href="https://coaladev.com.br" target="_blank" rel="noopener">
+        <a href={lang === "pt" ? "https://coaladev.com.br" : "https://coaladev.com.br/en/"} target="_blank" rel="noopener">
           Davi Oliveira
         </a>
       </footer>

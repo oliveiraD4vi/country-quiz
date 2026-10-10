@@ -16,6 +16,9 @@ const pt = {
   soloHint: "No seu ritmo, com o seu recorde",
   createRoom: "Criar sala",
   createRoomHint: "Chame amigos pelo link",
+  withFriends: "Jogar com amigos",
+  withFriendsHint: "Crie uma sala com as regras ao lado e mande o link, ou entre com um código.",
+  needName: "Escreva seu nome para jogar online.",
   joinRoom: "Entrar numa sala",
   roomCode: "Código da sala",
   join: "Entrar",
@@ -81,6 +84,9 @@ const en: typeof pt = {
   soloHint: "At your own pace, with your best score",
   createRoom: "Create a room",
   createRoomHint: "Invite friends with a link",
+  withFriends: "Play with friends",
+  withFriendsHint: "Create a room with the rules on the side and share the link, or join with a code.",
+  needName: "Type your name to play online.",
   joinRoom: "Join a room",
   roomCode: "Room code",
   join: "Join",
@@ -264,8 +270,10 @@ export function explanation(q: Question, lang: Lang, byCode: Map<string, Country
   }
 }
 
-/** Idioma inicial: o salvo, senão o do navegador. */
+/** Idioma inicial: ?lang= na URL, depois o salvo, depois o do navegador. */
 export function initialLang(): Lang {
+  const param = new URLSearchParams(location.search).get("lang");
+  if (param === "pt" || param === "en") return param;
   try {
     const saved = localStorage.getItem("quiz:lang");
     if (saved === "pt" || saved === "en") return saved;
